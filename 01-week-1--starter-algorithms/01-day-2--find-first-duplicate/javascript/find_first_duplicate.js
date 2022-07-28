@@ -1,5 +1,15 @@
 function findFirstDuplicate(arr) {
   // type your code here
+  let nums = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (nums.includes(arr[i])) {
+      return arr[i];
+    } else {
+      nums.push(arr[i]);
+    }
+  }
+  return -1;
 }
 
 if (require.main === module) {
@@ -11,6 +21,9 @@ if (require.main === module) {
 
   console.log("Expecting: -1");
   console.log("=>", findFirstDuplicate([1, 2, 3, 4]));
+
+  console.log("Expecting: 4");
+  console.log("=>", findFirstDuplicate([1, 2, 3, 4, 4]));
 }
 
 module.exports = findFirstDuplicate;
