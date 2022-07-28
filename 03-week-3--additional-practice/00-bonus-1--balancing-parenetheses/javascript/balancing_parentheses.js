@@ -1,21 +1,32 @@
 function balancingParentheses(string) {
   // type your code here
+  let right = 0;
+  let left = 0;
+
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] == "(") {
+      left += 1;
+    } else {
+      right += 1;
+    }
+  }
+  return left >= right ? left - right : right - left;
 }
 
 if (require.main === module) {
   // add your own tests in here
   console.log("Expecting: 0");
-  console.log(balancingParentheses('(()())'));
+  console.log(balancingParentheses("(()())"));
 
   console.log("");
 
   console.log("Expecting: 2");
-  console.log(balancingParentheses('()))'));
+  console.log(balancingParentheses("()))"));
 
   console.log("");
 
   console.log("Expecting: 1");
-  console.log(balancingParentheses(')'));
+  console.log(balancingParentheses(")"));
 }
 
 module.exports = balancingParentheses;
